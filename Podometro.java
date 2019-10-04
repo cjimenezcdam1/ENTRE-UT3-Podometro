@@ -49,10 +49,8 @@ public class Podometro {
      * accesor para la marca
      *  
      */
-    public    getMarca() {
-
-        
-
+    public String getMarca() {
+        return marca;
     }
 
     /**
