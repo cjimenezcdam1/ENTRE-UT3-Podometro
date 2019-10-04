@@ -3,14 +3,20 @@
  * acerca de los pasos, distancia, ..... que una persona (hombre o mujer)
  * ha dado en una semana. 
  * 
- * @author    - pon aquí tu nombre - 
+ * @author Christian Jimenez Cuesta 
  * 
  */
 public class Podometro {
-   
+    //constantes
+    private final char HOMBRE = 'H';
+    private final char MUJER = 'M';
+    private final double ZANCADA_HOMBRE = 0.45;
+    private final double ZANCADA_MUJER = 0.41;
+    private final int SABADO = 6;
+    private final int DOMINGO = 7;
+    //atributos
     
     
-
     /**
      * Inicializa el podómetro con la marca indicada por el parámetro.
      * El resto de atributos se ponen a 0 y el sexo, por defecto, es mujer
