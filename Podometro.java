@@ -16,9 +16,9 @@ public class Podometro {
     private final int DOMINGO = 7;
     //atributos
     private String marca;
-    private int altura;
+    private double altura;
     private char sexo;
-    private int longitudZancada;
+    private double longitudZancada;
     private int totalPasosLaborables;
     private int totalPasosSabado;
     private int totalPasosDomingo;
@@ -63,8 +63,13 @@ public class Podometro {
      *  
      */
     public void configurar(double queAltura, char queSexo) {
-
-        
+        altura = queAltura;
+        sexo = queSexo;
+        if(sexo == 'M'){
+            longitudZancada = Math.floor(altura * ZANCADA_MUJER);
+        }else if(sexo == 'H'){
+            longitudZancada = Math.ceil(altura * ZANCADA_HOMBRE);
+        }
     }
 
      /**
