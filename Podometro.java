@@ -15,7 +15,17 @@ public class Podometro {
     private final int SABADO = 6;
     private final int DOMINGO = 7;
     //atributos
-    
+    private String marca;
+    private int altura;
+    private char sexo;
+    private int longitudZancada;
+    private int totalPasosLaborables;
+    private int totalPasosSabado;
+    private int totalPasosDomingo;
+    private double totalDistanciaSemana;
+    private double totalDistaciaFinSemana;
+    private int tiempo;
+    private int caminatas;
     
     /**
      * Inicializa el podómetro con la marca indicada por el parámetro.
