@@ -118,7 +118,7 @@ public class Podometro {
             }   
             tiempo = minutosCaminados + (horasCaminadas * 60);
             //Incrementa las caminatas nocturnas, solo a partir de las 21h.
-            if(horaInicio > 2100 || horaFin > 2100){
+            if(horaInicio > 2100){
                 caminatasNoche++;
             }
     }
@@ -170,11 +170,11 @@ public class Podometro {
                             + "\nNº pasos SÁBADO: " + totalPasosSabado
                             + "\nNº pasos DOMINGO: " + totalPasosDomingo
                             + "\n"
-                            + "\n Nº de caminatas realizadas a partir de las 21h: " + caminatasNoche
+                            + "\nNº de caminatas realizadas a partir de las 21h: " + caminatasNoche
                             + "\n"
-                            + "\n Tiempo total caminado en la semana: " + (tiempo / 60) + "h. y "
+                            + "\nTiempo total caminado en la semana: " + (tiempo / 60) + "h. y "
                                 + (tiempo % 60) + "m."
-                            + "\n Días com más pasos caminados: " + diaMasCaminado);
+                            + "\nDía/s com más pasos caminados: " + diaMasCaminado);
     }
 
    
@@ -202,7 +202,16 @@ public class Podometro {
      *  
      */    
     public void reset() {
-        
+        sexo = MUJER;
+        altura = 0;
+        longitudZancada = 0;
+        totalPasosLaborables = 0;
+        totalPasosSabado  = 0;
+        totalPasosDomingo = 0;
+        totalDistanciaSemana = 0;
+        totalDistanciaFinSemana = 0;
+        tiempo = 0;
+        caminatasNoche = 0;
     }
 
 }
