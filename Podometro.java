@@ -116,7 +116,7 @@ public class Podometro {
             }else if(horaFin % 100 < horaInicio %  100){
                 minutosCaminados = horaInicio % 100 - horaFin % 100;
             }   
-            tiempo = minutosCaminados + (horasCaminadas * 60);
+            tiempo += minutosCaminados + (horasCaminadas * 60);
             //Incrementa las caminatas nocturnas, solo a partir de las 21h.
             if(horaInicio > 2100){
                 caminatasNoche++;
