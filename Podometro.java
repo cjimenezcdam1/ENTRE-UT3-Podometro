@@ -96,13 +96,13 @@ public class Podometro {
                 case 5: totalPasosLaborables += pasos;
                         break;
                 case 6: totalPasosSabado += pasos;
-                        totalDistaciaFinSemana += (pasos * longitudZancada);
+                        totalDistaciaFinSemana += (pasos * (longitudZancada / 100000));
                         break;
                 case 7: totalPasosDomingo += pasos;
-                        totalDistaciaFinSemana += (pasos * longitudZancada);
+                        totalDistaciaFinSemana += (pasos * (longitudZancada / 100000));
                         break;
             }
-            totalDistanciaSemana += (pasos * longitudZancada);
+            totalDistanciaSemana += (pasos * (longitudZancada / 100000));
             //Calcula y almacena los minutos caminados.
             int horasCaminadas = 0;
             if(horaFin / 100 > horaInicio / 100){
@@ -139,9 +139,9 @@ public class Podometro {
         }
         System.out.println("Configuración del podómetro"
                             + "\n*********************************"
-                            + "\nAltura: " + (altura / 100) + "mtos"
+                            + "\nAltura: " + (altura / 100) + " mtos"
                             + "\nSexo: " + nombreSexo
-                            + "\nLongitud zancada: " + (longitudZancada / 100) + "mtos");
+                            + "\nLongitud zancada: " + (longitudZancada / 100) + " mtos");
     }
 
     /**
@@ -152,9 +152,24 @@ public class Podometro {
      *  
      */
     public void printEstadísticas() {
-
-        
-
+        int tiempoMinutos = tiempo % 60;
+        int tiempoHoras = tiempo / 60;
+        String diaMayorNumeroPasos = "";
+        System.out.println("Estadísticas"
+                            + "\n*********************************"
+                            + "\nDistancia recorrida toda la semana: " + totalDistanciaSemana 
+                                + " Km"
+                            + "\nDistancia fin de semana: " + totalDistanciaFinSemana + " Km"
+                            + "\n"
+                            + "\nNº pasos días laborables: " + totalPasosLaborables
+                            + "\nNº pasos SÁBADO: " + totalPasosSabado
+                            + "\nNº pasos DOMINGO: " + totalPasosDomingo
+                            + "\n"
+                            + "\n Nº de caminatas realizadas a partir de las 21h: " + caminatasNoche
+                            + "\n"
+                            + "\n Tiempo total caminado en la semana: " + tiempoHoras + "h. y "
+                                + tiempoMinutos + "m."
+                            + "\n Días com más pasos caminados: "
     }
 
    
