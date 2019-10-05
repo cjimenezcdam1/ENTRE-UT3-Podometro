@@ -25,7 +25,7 @@ public class Podometro {
     private double totalDistanciaSemana;
     private double totalDistaciaFinSemana;
     private int tiempo;
-    private int caminatas;
+    private int caminatasNoche;
     
     /**
      * Inicializa el podómetro con la marca indicada por el parámetro.
@@ -42,7 +42,7 @@ public class Podometro {
         totalDistanciaSemana = 0;
         totalDistaciaFinSemana = 0;
         tiempo = 0;
-        caminatas = 0;
+        caminatasNoche = 0;
     }
 
     /**
@@ -87,9 +87,40 @@ public class Podometro {
      */
     public void registrarCaminata(int pasos, int dia, int horaInicio,
                             int horaFin) {
-
-        
-
+            //Según los días de la semana, nos guarda los pasos.
+            switch (dia){
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                case 5: totalPasosLaborables += pasos;
+                        break;
+                case 6: totalPasosSabado += pasos;
+                        totalDistaciaFinSemana += (pasos * longitudZancada);
+                        break;
+                case 7: totalPasosDomingo += pasos;
+                        totalDistaciaFinSemana += (pasos * longitudZancada);
+                        break;
+            }
+            totalDistanciaSemana += (pasos * longitudZancada);
+            //Calcula y almacena los minutos caminados.
+            int horasCaminadas = 0;
+            if(horaFin / 100 > horaInicio / 100){
+                horasCaminadas = horaFin / 100 - horaInicio / 100;
+            }else if(horaFin / 100 < horaInicio / 100){
+                horasCaminadas = horaInicio / 100 - horaFin / 100;
+            }  
+            int minutosCaminados = 0;
+            if(horaFin % 100 > horaInicio % 100){
+                minutosCaminados = horaFin % 100 - horaInicio % 100;
+            }else if(horaFin % 100 < horaInicio %  100){
+                minutosCaminados = horaInicio % 100 - horaFin % 100;
+            }   
+            tiempo = minutosCaminados + (horasCaminadas * 60);
+            //Incrementa las caminatas nocturnas, solo a partir de las 21h.
+            if(horaInicio > 2100 || horaFin > 2100){
+                caminatasNoche++;
+            }
     }
     
      /**
