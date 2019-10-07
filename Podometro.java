@@ -104,26 +104,8 @@ public class Podometro {
             }
             totalDistanciaSemana += (pasos * (longitudZancada / 100000));
             //Calcula y almacena los minutos caminados.
-            /**
-            * Está preparado para que, en caso de que se comience
-            * una caminata a las 23:00h y se termine a las 02:00h
-            * del día siguiente, no de resultado negativo y, por tanto, un error.
-            */
-            int horasCaminadas = 0;
-            int minutosCaminados = 0;
-            if(horaFin > horaInicio){
-                horasCaminadas = horaFin / 100 - horaInicio / 100;
-                minutosCaminados = horaFin % 100 - horaInicio % 100;
-            }else if(horaFin < horaInicio){
-                horasCaminadas = horaInicio / 100 - horaFin / 100;
-                minutosCaminados = horaInicio % 100 - horaFin % 100;
-            }
-            /**
-            * Esto se haría en caso de que no pudiéramos hacer caminatas
-            * entre las 23:00h y las 02:00h, por ejemplo...
-            * int horasCaminadas = horaFin / 100 - horaInicio / 100;
-            * int minutosCaminados = horaFin % 100 - horaInicio % 100;
-            */
+            int horasCaminadas = horaFin / 100 - horaInicio / 100;
+            int minutosCaminados = horaFin % 100 - horaInicio % 100;
             tiempo += minutosCaminados + (horasCaminadas * 60);
             //Incrementa las caminatas nocturnas, solo a partir de las 21h.
             if(horaInicio > 2100){
