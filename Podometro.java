@@ -142,14 +142,6 @@ public class Podometro {
      *  
      */
     public void printEstadísticas() {
-        String diaMasCaminado = "";
-        if(totalPasosLaborables > totalPasosSabado && totalPasosLaborables > totalPasosDomingo){
-            diaMasCaminado = "LABORABLES";
-        }else if(totalPasosSabado > totalPasosDomingo){
-            diaMasCaminado = "SÁBADO";
-        }else{
-            diaMasCaminado = "DOMINGO";
-        }
         System.out.println("Estadísticas"
                             + "\n*********************************"
                             + "\nDistancia recorrida toda la semana: " + totalDistanciaSemana 
@@ -163,8 +155,7 @@ public class Podometro {
                             + "\nNº de caminatas realizadas a partir de las 21h: " + caminatasNoche
                             + "\n"
                             + "\nTiempo total caminado en la semana: " + (tiempo / 60) + "h. y "
-                                + (tiempo % 60) + "m."
-                            + "\nDía/s com más pasos caminados: " + diaMasCaminado);
+                                + (tiempo % 60) + "m.");
     }
     
     /**
